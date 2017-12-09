@@ -1,0 +1,41 @@
+@import '~scss/variables/colors';
+@import '~scss/mixins/rem';
+
+.news-item {
+  @include rem(margin, 5px 10px);
+  @include rem(max-width, 600px);
+  @include rem(padding, 5px);
+
+  box-shadow: 0 0 14px 0 $box-shadow-color;
+
+  .title {
+    @include rem(font-size, 18px);
+
+    color: $text-gray;
+    font-style: italic;
+    font-weight: 500;
+    text-decoration: none;
+    width: 90%;
+  }
+
+  .arrow {
+    margin-right: 15px;
+    transform: rotate(-90deg);
+    transition: transform .3s linear;
+  }
+
+  .rotate {
+    transform: rotate(0);
+  }
+
+  .main-row {
+    border-bottom: 3px $border-main-color;
+  }
+
+  .row {
+    @include rem(margin-top, 10px);
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+}

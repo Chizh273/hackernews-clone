@@ -6,9 +6,9 @@ function Header (props) {
   return (
     <header className={style.header}>
       <img alt="logo" className={style['header-logo']} src={logo} />
-      <h2 className={style['header-title']}>
+      <h1 className={style['header-title']}>
         { props.children }
-      </h2>
+      </h1>
     </header>
   )
 }

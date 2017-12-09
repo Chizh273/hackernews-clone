@@ -1,5 +1,5 @@
-@import '~breakpoint-sass/stylesheets/breakpoint';
 @import '~sanitize.css';
+@import '~font-awesome/scss/font-awesome';
 
 @import 'mixins/rem';
 
@@ -7,6 +7,7 @@
 @import 'variables/_sizes';
 @import 'variables/_variables';
 
+@import 'base/fonts';
 @import 'base/base';
 @import 'base/forms';
 
