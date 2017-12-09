@@ -1,6 +1,22 @@
+const path = require('path')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+
 const config = require('./config')
 
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const loadersArray = [
+  {
+    loader: 'postcss-loader',
+    options: {sourceMap: !config.isProd}
+  },
+  {
+    loader: 'resolve-url-loader',
+    options: {sourceMap: !config.isProd}
+  },
+  {
+    loader: 'sass-loader',
+    options: {sourceMap: !config.isProd}
+  }
+]
 
 const extractSass = new ExtractTextPlugin({
   filename: 'css/[name].css',
@@ -12,35 +28,46 @@ module.exports = {
     extractSass
   ],
   module: {
-    rules: [{
-      test: /\.scss$/,
-      use: extractSass.extract({
-        use: [
-          {
-            loader: 'css-loader',
-            options: {
-              sourceMap: !config.isProd,
-              modules: true,
-              importLoaders: 1,
-              localIdentName: '[path][name]__[local]--[hash:base64:5]'
-            }
-          },
-          {
-            loader: 'postcss-loader',
-            options: {sourceMap: !config.isProd}
-          },
-          {
-            loader: 'resolve-url-loader',
-            options: {sourceMap: !config.isProd}
-          },
-          {
-            loader: 'sass-loader',
-            options: {sourceMap: !config.isProd}
-          }
+    rules: [
+      {
+        test: /\.scss$/,
+        exclude: [
+          path.resolve(__dirname, '..', 'src', 'scss', 'index.scss')
         ],
-        // use style-loader in development
-        fallback: 'style-loader'
-      })
-    }]
+        use: extractSass.extract({
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                sourceMap: !config.isProd,
+                modules: true,
+                importLoaders: 1,
+                localIdentName: '[path][name]__[local]--[hash:base64:5]'
+              }
+            },
+            ...loadersArray
+          ],
+          // use style-loader in development
+          fallback: 'style-loader'
+        })
+      },
+      {
+        test: /\.scss$/,
+        include: [
+          path.resolve(__dirname, '..', 'src', 'scss', 'index.scss')
+        ],
+        use: extractSass.extract({
+          use: [
+            {
+              loader: 'css-loader',
+              options: {sourceMap: !config.isProd}
+            },
+            ...loadersArray
+          ],
+          // use style-loader in development
+          fallback: 'style-loader'
+        })
+      }
+    ]
   }
 }

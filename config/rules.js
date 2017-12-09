@@ -20,6 +20,17 @@ module.exports = [
     ]
   },
   {
+    test: /\.(ttf|woff2|eot|woff)$/,
+    use: [
+      {
+        loader: 'file-loader',
+        options: {
+          outputPath: 'fonts/'
+        }
+      }
+    ]
+  },
+  {
     test: /\.html$/,
     use: [{loader: 'html-loader'}]
   }
