@@ -1,27 +1,29 @@
 @import '~scss/variables/colors';
 @import '~scss/mixins/rem';
 
-.app-header {
+.header {
+  align-items: center;
   background-color: $bg-header;
   display: flex;
-}
 
-.app-header .header-logo {
-  margin: 10px;
-}
+  .header-logo {
+    margin: 10px;
+  }
 
-.app-header .header-title {
-  color: $text-white;
+  .header-title {
+    color: $text-white;
+  }
 }
 
 @media screen and (max-width: 425px) {
-  .app-header {
-    display: block;
-  }
+  .header {
+    flex-direction: column;
+    justify-content: center;
 
-  .app-header .header-logo,
-  .app-header .header-title {
-    margin: 0;
-    padding: 5px 0;
+    .header-logo,
+    .header-title {
+      margin: 0;
+      padding: 5px 0;
+    }
   }
 }

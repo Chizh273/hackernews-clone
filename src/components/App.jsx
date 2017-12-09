@@ -1,17 +1,17 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import Header from './shared/header/Header.jsx'
-import './App.scss'
+import style from './App.scss'
 
 function App () {
   return (
-    <div className="App">
+    <Fragment>
       <Header>
         {'Hacker news clone'}
       </Header>
-      <p className="App-intro">
+      <p className={style['App-intro']}>
         To get started, edit <code>src/App.js</code> and save to reload.
       </p>
-    </div>
+    </Fragment>
   )
 }
 

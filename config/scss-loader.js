@@ -18,7 +18,12 @@ module.exports = {
         use: [
           {
             loader: 'css-loader',
-            options: {sourceMap: !config.isProd}
+            options: {
+              sourceMap: !config.isProd,
+              modules: true,
+              importLoaders: 1,
+              localIdentName: '[path][name]__[local]--[hash:base64:5]'
+            }
           },
           {
             loader: 'postcss-loader',
