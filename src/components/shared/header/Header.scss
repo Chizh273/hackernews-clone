@@ -1,5 +1,8 @@
+@import '~scss/variables/colors';
+@import '~scss/mixins/rem';
+
 .app-header {
-  background-color: #222;
+  background-color: $bg-header;
   display: flex;
 }
 
@@ -8,7 +11,7 @@
 }
 
 .app-header .header-title {
-  color: #fff;
+  color: $text-white;
 }
 
 @media screen and (max-width: 425px) {

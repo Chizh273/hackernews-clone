@@ -1,0 +1,11 @@
+form {
+  > * {
+    border: 0;
+    margin: 5px;
+    outline: none;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
