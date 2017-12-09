@@ -1,0 +1,24 @@
+.app-header {
+  background-color: #222;
+  display: flex;
+}
+
+.app-header .header-logo {
+  margin: 10px;
+}
+
+.app-header .header-title {
+  color: #fff;
+}
+
+@media screen and (max-width: 425px) {
+  .app-header {
+    display: block;
+  }
+
+  .app-header .header-logo,
+  .app-header .header-title {
+    margin: 0;
+    padding: 5px 0;
+  }
+}

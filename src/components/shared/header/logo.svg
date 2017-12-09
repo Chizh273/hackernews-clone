@@ -1,0 +1,17 @@
+<svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+
+ <g>
+  <title>background</title>
+  <rect fill="#fa6a21" id="canvas_background" height="66" width="66" y="-1" x="-1"/>
+  <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+   <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+  </g>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <text font-style="normal" font-weight="bold" stroke="#000" transform="matrix(2.2294730525525615,0,0,1.7416463843914582,-42.87570161418511,-3.210346916188168) " xml:space="preserve" text-anchor="start" font-family="'Trebuchet MS', Gadget, sans-serif" font-size="26" id="svg_1" y="29.550656" x="25.612825" stroke-width="0" fill="#000000">Y</text>
+  <rect id="svg_2" height="0" width="0.975605" y="7.244014" x="13.219597" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+  <rect id="svg_4" height="54" width="42" y="5" x="11" fill-opacity="0" stroke-width="4" stroke="#191916" fill="#d60000"/>
+ </g>
+</svg>
