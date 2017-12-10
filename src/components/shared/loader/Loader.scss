@@ -1,0 +1,55 @@
+@import '~scss/variables/colors';
+
+.bg {
+  animation: loader-bg 2s infinite;
+  fill: $loader-bg-color;
+}
+
+.letter line {
+  animation: loader-spin 2s infinite;
+  fill: $text-black;
+  fill-opacity: 0;
+  font-family: 'Trebuchet MS', Gadget, sans-serif;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: bold;
+  stroke: $text-black;
+  stroke-linecap: null;
+  stroke-width: 6;
+  text-anchor: start;
+  transform-origin: center;
+}
+
+.border {
+  animation: loader-spin 2s infinite;
+  fill-opacity: 0;
+  height: 54px;
+  stroke: $loader-border-color;
+  stroke-width: 4;
+  transform-origin: center;
+  width: 42px;
+}
+
+@keyframes loader-spin {
+  0% {
+    transform: rotateY(0deg);
+  }
+
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+@keyframes loader-bg {
+  0% {
+    fill-opacity: .1;
+  }
+
+  50% {
+    fill-opacity: 1;
+  }
+
+  100% {
+    fill-opacity: .1;
+  }
+}
