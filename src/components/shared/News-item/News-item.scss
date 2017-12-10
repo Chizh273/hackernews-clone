@@ -5,7 +5,7 @@
   @include rem(margin, 5px 10px);
   @include rem(max-width, 600px);
   @include rem(padding, 5px);
-
+  background-color: $bg-white;
   box-shadow: 0 0 14px 0 $box-shadow-color;
 
   .title {

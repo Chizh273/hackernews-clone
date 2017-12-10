@@ -19,6 +19,7 @@
   "dependencies": {
     "axios": "^0.17.1",
     "font-awesome": "^4.7.0",
+    "lodash": "^4.17.4",
     "moment": "^2.19.3",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
@@ -26,6 +27,7 @@
     "react-redux": "^5.0.6",
     "react-router": "^4.2.0",
     "redux": "^3.7.2",
+    "reselect": "^3.0.1",
     "sanitize.css": "^5.0.0"
   },
   "devDependencies": {

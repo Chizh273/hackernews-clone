@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { loadNews } from '../../../actions'
 import NewsItem from '../../shared/News-item/News-item'
+import { getChunkNews } from '../../../selectors'
+import style from './Home.scss'
 
 class Home extends Component {
   static propTypes = {
@@ -16,19 +18,15 @@ class Home extends Component {
   render () {
     console.log(this.props.news)
     return (
-      <div className="Home" >
-        <NewsItem />
+      <div className={style.home}>
+        {this.props.news.map(id => <NewsItem id={id} key={id} />)}
       </div>
     )
   }
 }
 
 const mapStateToProps = (state) => ({
-  news: state.news ? state.news.idsArray : []
+  news: getChunkNews(state)
 })
 
-const mapDispatchToProps = {
-  loadNews
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home)
+export default connect(mapStateToProps, {loadNews})(Home)

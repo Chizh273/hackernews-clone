@@ -1,6 +1,9 @@
 import {
-  NEWS, _LOAD_START, _LOAD_SUCCESS, _LOAD_FAIL,
-  NEWS_ITEM
+  NEWS,
+  NEWS_ITEM,
+  _LOAD_START,
+  _LOAD_SUCCESS,
+  _LOAD_FAIL
 } from '../actions/constants'
 
 const newsDefaultState = {
@@ -8,7 +11,8 @@ const newsDefaultState = {
   isError: false,
   errors: {},
   items: {},
-  idsArray: []
+  idsArray: [],
+  countToDisplay: 20
 }
 
 export default (state = newsDefaultState, action) => {
@@ -27,11 +31,11 @@ export default (state = newsDefaultState, action) => {
 
     case NEWS + _LOAD_SUCCESS:
       newState.isLoading = false
-      newState.idsArray = payload.items
+      newState.idsArray = payload.data
       break
 
     case NEWS_ITEM + _LOAD_SUCCESS:
-      newState.items[payload.id] = payload.item
+      newState.items[payload.data.id] = payload.data
       break
 
     case NEWS_ITEM + _LOAD_FAIL:

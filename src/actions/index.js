@@ -12,14 +12,8 @@ export const loadNews = (type = 'topstories') => ({
   type: NEWS + _LOAD_START,
   payload: {
     api: true,
-    url: `${API_URL}/${type}.json?print=pretty`
-  }
-})
-
-export const loadNewsSuccess = (items) => ({
-  type: NEWS + _LOAD_SUCCESS,
-  payload: {
-    items
+    url: `${API_URL}/${type}.json?print=pretty`,
+    nextType: NEWS
   }
 })
 
@@ -28,20 +22,20 @@ export const loadNewsItem = (id) => ({
   payload: {
     api: true,
     id,
-    url: `${API_URL}/item/${id}.json?print=pretty`
+    url: `${API_URL}/item/${id}.json?print=pretty`,
+    nextType: NEWS_ITEM
   }
 })
 
-export const loadNewsItemSuccess = (id, item) => ({
-  type: NEWS + _LOAD_SUCCESS,
+export const loadAPISuccess = (type, data) => ({
+  type: type + _LOAD_SUCCESS,
   payload: {
-    id,
-    item
+    data
   }
 })
 
-export const loadNewsFail = (error) => ({
-  type: NEWS + _LOAD_FAIL,
+export const loadAPIFail = (type, error) => ({
+  type: type + _LOAD_FAIL,
   payload: {
     error
   }
