@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import moment from 'moment'
 import style from './News-item.scss'
 
@@ -53,6 +53,25 @@ class NewsItem extends Component {
     return `fa fa-angle-down fa-2x ${style.arrow} ${isShow ? style.rotate : ''}`
   }
 
+  getDetailsRow () {
+    return (
+      <Fragment>
+        <span className="points">
+          <strong>{mock.score}</strong> points
+        </span>
+        <span className="author">
+          by <strong>{mock.by}</strong>
+        </span>
+        <span className="comment-count">
+          <strong>{mock.descendants}</strong> comment
+        </span>
+        <span className="time">
+          {moment.unix(mock.time, 'x').format('DD MMMM, YYYY - HH:mma')}
+        </span>
+      </Fragment>
+    )
+  }
+
   handleToggle = () => {
     const isShow = !this.state.isShow
     this.setState({isShow})
@@ -71,18 +90,7 @@ class NewsItem extends Component {
         </div>
         {isShow ? (
           <div className={style.row}>
-            <span className="points">
-              <strong>{mock.score}</strong> points
-            </span>
-            <span className="author">
-              by <strong>{mock.by}</strong>
-            </span>
-            <span className="comment-count">
-              <strong>{mock.descendants}</strong> comment
-            </span>
-            <span className="time">
-              {moment.unix(mock.time, 'x').format('DD MMMM, YYYY - HH:mma')}
-            </span>
+            {this.getDetailsRow()}
           </div>
         ) : null}
       </div>

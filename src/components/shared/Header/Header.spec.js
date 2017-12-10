@@ -18,6 +18,6 @@ describe('Header.spec.js', () => {
       div
     )
 
-    expect(div.querySelector('h2').textContent).toBe(testText)
+    expect(div.querySelector('h1').textContent).toBe(testText)
   })
 })

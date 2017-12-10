@@ -1,12 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import NewsItem from './News-item'
+import Home from './Home'
 
-describe('News-item.jsx', () => {
-  const news = {}
+describe('Home.jsx', () => {
+  const news = []
 
   it('renders without crashing', () => {
     const div = document.createElement('div')
-    ReactDOM.render(<NewsItem news={news} />, div)
+    ReactDOM.render(<Home news={news} />, div)
   })
 })

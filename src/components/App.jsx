@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import Header from './shared/Header/Header.jsx'
-import NewsItem from './shared/News-item/News-item'
+import Home from './pages/Home/Home'
+
 function App () {
   return (
     <Fragment>
@@ -8,7 +9,7 @@ function App () {
         {'Hacker news clone'}
       </Header>
 
-      <NewsItem />
+      <Home />
 
     </Fragment>
   )
