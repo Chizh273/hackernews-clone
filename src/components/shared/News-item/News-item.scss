@@ -7,6 +7,7 @@
   @include rem(padding, 5px);
   background-color: $bg-white;
   box-shadow: 0 0 14px 0 $box-shadow-color;
+  width: 90%;
 
   .title {
     @include rem(font-size, 18px);
