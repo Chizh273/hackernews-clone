@@ -1,16 +1,25 @@
 @import '~scss/variables/colors';
 
-.bg {
+.loader {
+  align-items: center;
   animation: loader-bg 2s infinite;
-  fill: $loader-bg-color;
+  background-color: $loader-bg-color;
+  display: flex;
+  height: 64px;
+  justify-content: center;
+  width: 64px;
+
+  > * {
+    position: absolute;
+  }
 }
 
-.letter line {
+.letter {
   animation: loader-spin 2s infinite;
   fill: $text-black;
   fill-opacity: 0;
   font-family: 'Trebuchet MS', Gadget, sans-serif;
-  font-size: 64px;
+  font-size: 52px;
   font-style: normal;
   font-weight: bold;
   stroke: $text-black;
@@ -22,10 +31,9 @@
 
 .border {
   animation: loader-spin 2s infinite;
+  border: 4px solid $loader-border-color;
   fill-opacity: 0;
   height: 54px;
-  stroke: $loader-border-color;
-  stroke-width: 4;
   transform-origin: center;
   width: 42px;
 }
@@ -42,14 +50,14 @@
 
 @keyframes loader-bg {
   0% {
-    fill-opacity: .1;
+    opacity: .1;
   }
 
   50% {
-    fill-opacity: 1;
+    opacity: 1;
   }
 
   100% {
-    fill-opacity: .1;
+    opacity: .1;
   }
 }

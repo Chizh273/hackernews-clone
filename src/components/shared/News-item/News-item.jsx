@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import isEmpty from 'lodash/isEmpty'
 import moment from 'moment'
 
+import Loader from '../loader/Loader'
 import style from './News-item.scss'
 import { loadNewsItem } from '../../../actions'
 
@@ -71,7 +72,7 @@ class NewsItem extends Component {
     const {news} = this.props
 
     if (news.isLoading) {
-      return null
+      return <Loader />
     }
 
     return (

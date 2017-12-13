@@ -4,6 +4,8 @@ import { loadAPIFail, loadAPISuccess } from '../actions'
 export default store => next => async action => {
   const {payload} = action
 
+  next(action)
+
   if (payload.api) {
     try {
       const data = (await axios.get(payload.url)).data
