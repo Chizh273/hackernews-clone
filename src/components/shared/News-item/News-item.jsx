@@ -58,7 +58,7 @@ class NewsItem extends Component {
         <span className="comment-count">
           <strong>{news.descendants}</strong> comment
         </span>
-        <span className="time">
+        <span className={style.time}>
           {moment.unix(news.time, 'x').format('DD MMMM, YYYY - HH:mma')}
         </span>
       </Fragment>

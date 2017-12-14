@@ -16,7 +16,7 @@
     font-style: italic;
     font-weight: 500;
     text-decoration: none;
-    width: 90%;
+    width: 85%;
   }
 
   .arrow {
@@ -37,6 +37,14 @@
     @include rem(margin-top, 10px);
     align-items: center;
     display: flex;
+    flex-basis: 50%;
+    flex-wrap: wrap;
     justify-content: space-between;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .news-item .time {
+    margin: 0 auto;
   }
 }
