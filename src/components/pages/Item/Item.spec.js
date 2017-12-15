@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import NewsItemPage from './News-item-page'
+import Item from './Item'
 
-describe('News-item-page.jsx', () => {
+describe('Item.jsx', () => {
   it('renders without crashing', () => {
     const div = document.createElement('div')
-    ReactDOM.render(<NewsItemPage />, div)
+    ReactDOM.render(<Item />, div)
   })
 })

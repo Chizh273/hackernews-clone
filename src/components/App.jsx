@@ -1,26 +1,22 @@
 import React, { Fragment } from 'react'
 import Header from './shared/Header/Header.jsx'
-import Home from '@/components/pages/Home/Home'
-import NewsItemPage from '@/components/pages/News-item-page/News-item-page'
-import { Switch, Route, Router } from 'react-router'
-import createBrowserHistory from 'history/createBrowserHistory'
-
-const history = createBrowserHistory()
+import { Switch, Route, HashRouter as Router, Link } from 'react-router-dom'
+import Async from './decorators/Async'
 
 function App () {
   return (
-    <Fragment >
-      <Header>
-        {'Hacker news clone'}
-      </Header>
-
-      <Router history={history}>
+    <Router>
+      <Fragment>
+        <Header>
+          {'Hacker news clone'}
+        </Header>
+        <Link to="/item/1">item</Link>
         <Switch>
-          <Route component={Home} extact path="/" />
-          <Route component={NewsItemPage} path="/item/:id" />
+          <Route component={Async(() => import('@/components/pages/Item/Item'))} path="/item/:id" />
+          <Route component={Async(() => import('@/components/pages/Home/Home'))} extact path="/" />
         </Switch>
-      </Router>
-    </Fragment>
+      </Fragment>
+    </Router>
   )
 }
 
