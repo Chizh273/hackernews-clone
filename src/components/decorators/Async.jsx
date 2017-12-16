@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
-import Loader from '../shared/loader/Loader'
+import Loader from '../shared/Loader/Loader'
 import { Redirect } from 'react-router-dom'
 
-function Async (getComponent) {
+function Async (name, getComponent) {
   return class Async extends Component {
+    static displayName = `Async${name}`;
+
     constructor (...args) {
       super(...args)
 

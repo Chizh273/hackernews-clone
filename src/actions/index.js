@@ -3,7 +3,7 @@ import {
   NEWS_ITEM,
   _LOAD_START,
   _LOAD_FAIL,
-  _LOAD_SUCCESS
+  _LOAD_SUCCESS, COMMENT
 } from './constants'
 
 const API_URL = 'https://hacker-news.firebaseio.com/v0'
@@ -17,13 +17,23 @@ export const loadNews = (type = 'topstories') => ({
   }
 })
 
-export const loadNewsItem = (id) => ({
+export const loadNewsItem = id => ({
   type: NEWS_ITEM + _LOAD_START,
   payload: {
     api: true,
     id,
     url: `${API_URL}/item/${id}.json?print=pretty`,
     nextType: NEWS_ITEM
+  }
+})
+
+export const loadComment = id => ({
+  type: COMMENT + _LOAD_START,
+  payload: {
+    api: true,
+    id,
+    url: `${API_URL}/item/${id}.json?print=pretty`,
+    nextType: COMMENT
   }
 })
 

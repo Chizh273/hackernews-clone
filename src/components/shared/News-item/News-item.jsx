@@ -1,10 +1,11 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import isEmpty from 'lodash/isEmpty'
 import moment from 'moment'
 
-import Loader from '../loader/Loader'
+import Loader from '../Loader/Loader'
 import style from './News-item.scss'
 import { loadNewsItem } from '../../../actions'
 
@@ -88,8 +89,12 @@ class NewsItem extends Component {
         </div>
 
         {isShow ? (
-          <div className={style.row}>
+          <div className={`${style['detail-row']}`}>
             {this.getDetailsRow()}
+
+            <span className="open-item">
+              <Link to={`/item/${this.props.id}`}>Open comments</Link>
+            </span>
           </div>
         ) : null}
 

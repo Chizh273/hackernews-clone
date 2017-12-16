@@ -5,7 +5,7 @@ import { loadNews } from '../../../actions'
 import NewsItem from '../../shared/News-item/News-item'
 import { getChunkNews } from '../../../selectors'
 import style from './Home.scss'
-import Loader from '../../shared/loader/Loader'
+import Loader from '../../shared/Loader/Loader'
 
 class Home extends Component {
   static propTypes = {

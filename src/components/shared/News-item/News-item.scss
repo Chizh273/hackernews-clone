@@ -1,12 +1,13 @@
 @import '~scss/variables/colors';
+@import '~scss/mixins/box-shadow';
 @import '~scss/mixins/rem';
 
 .news-item {
   @include rem(margin, 5px 10px);
   @include rem(max-width, 600px);
   @include rem(padding, 5px);
-  background-color: $bg-white;
-  box-shadow: 0 0 14px 0 $box-shadow-color;
+  @include box;
+
   width: 90%;
 
   .title {
@@ -29,11 +30,8 @@
     transform: rotate(0);
   }
 
-  .main-row {
-    border-bottom: 3px $border-main-color;
-  }
-
-  .row {
+  .row,
+  .detail-row {
     @include rem(margin-top, 10px);
     align-items: center;
     display: flex;
@@ -46,5 +44,16 @@
 @media screen and (max-width: 768px) {
   .news-item .time {
     margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .detail-row {
+    flex-direction: column;
+    justify-content: center;
+
+    > * {
+      margin: 3px;
+    }
   }
 }
