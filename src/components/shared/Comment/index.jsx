@@ -9,7 +9,7 @@ import CommentList from '@/components/shared/CommentList'
 import getTimeAgo from '@/utills/getTimeAgo'
 
 class Comment extends Component {
-  componentWillMount () {
+  componentDidMount () {
     if (isEmpty(this.props.comment)) {
       this.props.loadComment(this.props.id)
     }

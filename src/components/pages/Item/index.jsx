@@ -29,7 +29,7 @@ class Item extends Component {
     item: {}
   }
 
-  componentWillMount () {
+  componentDidMount () {
     if (isEmpty(this.props.item)) {
       this.props.loadNewsItem(this.props.match.params.id)
     }
@@ -39,7 +39,7 @@ class Item extends Component {
     const {item} = this.props
 
     if (isEmpty(this.props.item) || this.props.isLoading) return <Loader />
-
+    console.log(item)
     return (
       <div className={style['item-page']}>
         <div className="news">

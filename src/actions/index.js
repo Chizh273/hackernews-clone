@@ -2,6 +2,7 @@ import {
   NEWS,
   NEWS_ITEM,
   NEWS_LOAD_MORE,
+  SELECT_NEWS_TYPE,
   _LOAD_START,
   _LOAD_FAIL,
   _LOAD_SUCCESS, COMMENT
@@ -9,11 +10,20 @@ import {
 
 const API_URL = 'https://hacker-news.firebaseio.com/v0'
 
-export const loadNews = (type = 'topstories') => ({
+export const selectNewsType = type => ({
+  type: SELECT_NEWS_TYPE,
+  payload: {
+    type
+  }
+})
+
+export const loadNews = () => ({
   type: NEWS + _LOAD_START,
   payload: {
     api: true,
-    url: `${API_URL}/${type}.json?print=pretty`,
+    loadAll: true,
+    url: `${API_URL}/`,
+    urlSuffix: '.json?print=pretty',
     nextType: NEWS
   }
 })
@@ -45,11 +55,12 @@ export const loadComment = id => ({
   }
 })
 
-export const loadAPISuccess = (type, data, id) => ({
+export const loadAPISuccess = (type, data, id, newsType) => ({
   type: type + _LOAD_SUCCESS,
   payload: {
     data,
-    id
+    id,
+    newsType
   }
 })
 

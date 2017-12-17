@@ -36,7 +36,7 @@ class NewsItem extends Component {
     }
   }
 
-  componentWillMount () {
+  componentDidMount () {
     if (isEmpty(this.props.news)) {
       this.props.loadNewsItem(this.props.id)
     }

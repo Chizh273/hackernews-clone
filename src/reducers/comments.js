@@ -3,7 +3,7 @@ import {
   _LOAD_FAIL,
   _LOAD_START,
   _LOAD_SUCCESS
-} from '../actions/constants'
+} from '@/actions/constants'
 
 const commentsDefaultState = {
 

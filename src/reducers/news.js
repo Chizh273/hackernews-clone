@@ -1,18 +1,21 @@
 import {
   NEWS,
   NEWS_ITEM,
+  NEWS_LOAD_MORE,
+  SELECT_NEWS_TYPE,
   _LOAD_START,
   _LOAD_SUCCESS,
-  _LOAD_FAIL, NEWS_LOAD_MORE
-} from '../actions/constants'
+  _LOAD_FAIL
+} from '@/actions/constants'
+import { TOPSTORIES } from '@/entities/constants'
 
 const newsDefaultState = {
   isLoading: false,
   isError: false,
   errors: {},
   items: {},
-  idsArray: [],
-  countToDisplay: 5
+  countToDisplay: 5,
+  currentType: TOPSTORIES
 }
 
 export default (state = newsDefaultState, action) => {
@@ -21,6 +24,10 @@ export default (state = newsDefaultState, action) => {
   newState.isLoading = false
 
   switch (type) {
+    case SELECT_NEWS_TYPE:
+      newState.currentType = payload.type
+      break
+
     case NEWS + _LOAD_START:
       newState.isLoading = true
       break
@@ -31,7 +38,7 @@ export default (state = newsDefaultState, action) => {
 
     case NEWS + _LOAD_SUCCESS:
       newState.isLoading = false
-      newState.idsArray = payload.data
+      newState[payload.newsType] = {idsArray: payload.data}
       break
 
     case NEWS_ITEM + _LOAD_SUCCESS:
