@@ -21,7 +21,7 @@ export const loadNews = (type = 'topstories') => ({
 export const loadMoreNews = () => ({
   type: NEWS_LOAD_MORE,
   payload: {
-    count: 20
+    count: 5
   }
 })
 

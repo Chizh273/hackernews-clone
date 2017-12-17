@@ -1,0 +1,13 @@
+@import '~scss/variables/colors';
+
+.footer {
+  background-color: $bg-header;
+  padding: 10px;
+  text-align: center;
+  width: 100%;
+
+  &,
+  a {
+    color: $text-white;
+  }
+}

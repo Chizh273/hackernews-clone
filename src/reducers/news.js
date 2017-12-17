@@ -12,7 +12,7 @@ const newsDefaultState = {
   errors: {},
   items: {},
   idsArray: [],
-  countToDisplay: 20
+  countToDisplay: 5
 }
 
 export default (state = newsDefaultState, action) => {
