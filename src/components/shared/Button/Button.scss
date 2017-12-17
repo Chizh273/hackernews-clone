@@ -1,0 +1,48 @@
+@import '~scss/variables/colors';
+
+.button {
+  align-items: center;
+  border: 2px solid transparent;
+  border-radius: 3px;
+  color: $text-black;
+  display: flex;
+  height: 30px;
+  justify-content: center;
+  margin: 10px;
+  position: relative;
+  transition: transform .5ms ease-in-out;
+
+  width: 150px;
+
+  &:active {
+    transform: scale(.9);
+  }
+
+  &:hover {
+    background-color: $bg-bnt-hover;
+  }
+
+  &:before {
+    border: $bnt-border solid 4px;
+    bottom: -16px;
+    content: '';
+    left: -16px;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    right: -16px;
+    top: -16px;
+    transition-duration: .3s;
+    transition-property: top, right, bottom, left;
+  }
+
+  &:hover:before,
+  &:focus:before,
+  &:active:before {
+    bottom: -8px;
+    left: -8px;
+    opacity: 1;
+    right: -8px;
+    top: -8px;
+  }
+}

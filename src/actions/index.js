@@ -1,6 +1,7 @@
 import {
   NEWS,
   NEWS_ITEM,
+  NEWS_LOAD_MORE,
   _LOAD_START,
   _LOAD_FAIL,
   _LOAD_SUCCESS, COMMENT
@@ -14,6 +15,13 @@ export const loadNews = (type = 'topstories') => ({
     api: true,
     url: `${API_URL}/${type}.json?print=pretty`,
     nextType: NEWS
+  }
+})
+
+export const loadMoreNews = () => ({
+  type: NEWS_LOAD_MORE,
+  payload: {
+    count: 20
   }
 })
 

@@ -3,7 +3,7 @@ import {
   NEWS_ITEM,
   _LOAD_START,
   _LOAD_SUCCESS,
-  _LOAD_FAIL
+  _LOAD_FAIL, NEWS_LOAD_MORE
 } from '../actions/constants'
 
 const newsDefaultState = {
@@ -42,6 +42,10 @@ export default (state = newsDefaultState, action) => {
     case NEWS + _LOAD_FAIL:
       newState.isError = true
       newState.errors = payload.error
+      break
+
+    case NEWS_LOAD_MORE:
+      newState.countToDisplay += payload.count
       break
   }
 
