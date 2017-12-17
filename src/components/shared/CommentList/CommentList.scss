@@ -5,4 +5,15 @@
 .comment-list {
   @include rem(margin, 10px 0 10px 15px);
   @include rem(max-width, 500px);
+
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 425px) {
+  .comment-list {
+    @include rem(margin, 5px 0 5px 5px);
+    width: 95%;
+  }
 }
