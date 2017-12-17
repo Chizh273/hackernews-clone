@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
@@ -49,7 +49,7 @@ class NewsItem extends Component {
   getDetailsRow () {
     const {news} = this.props
     return (
-      <Fragment>
+      <div>
         <span className="points">
           <strong>{news.score}</strong> points
         </span>
@@ -62,7 +62,7 @@ class NewsItem extends Component {
         <span className={style.time}>
           {formatUnixDate(news.time, DATE_FORMAT_DMY_HMA)}
         </span>
-      </Fragment>
+      </div>
     )
   }
 
@@ -92,9 +92,12 @@ class NewsItem extends Component {
           <div className={`${style['detail-row']}`}>
             {this.getDetailsRow()}
 
-            <span className="open-item">
-              <Link to={`/item/${this.props.id}`}>Open comments</Link>
-            </span>
+            <div className={style['open-item']}>
+              <Link to={`/item/${this.props.id}`}>
+                Open comments
+                <i aria-hidden="true" className="fa fa-long-arrow-right" />
+              </Link>
+            </div>
           </div>
         ) : null}
 

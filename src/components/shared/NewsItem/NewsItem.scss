@@ -39,6 +39,21 @@
     flex-wrap: wrap;
     justify-content: space-between;
   }
+
+  .open-item {
+    @include rem(margin-top, 10px);
+
+    text-align: center;
+    width: 100%;
+
+    a {
+      color: $text-black;
+    }
+
+    i {
+      @include rem(margin, 0 3px);
+    }
+  }
 }
 
 @media screen and (max-width: 768px) {
