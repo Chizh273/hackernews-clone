@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware } from 'redux'
 import api from '../middlewares/api'
-import reducer from '../redurecers'
+import reducer from '../reducers'
 
 const enhancer = applyMiddleware(
   api

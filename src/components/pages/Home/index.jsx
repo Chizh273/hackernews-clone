@@ -4,8 +4,8 @@ import PropTypes from 'prop-types'
 import style from './Home.scss'
 import { loadNews } from '@/actions'
 import { getChunkNews } from '@/selectors'
-import NewsItem from '@/components/shared/NewsItem/NewsItem'
-import Loader from '@/components/shared/Loader/Loader'
+import NewsItem from '@/components/shared/NewsItem'
+import Loader from '@/components/shared/Loader'
 
 class Home extends Component {
   static propTypes = {

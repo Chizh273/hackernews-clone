@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import style from './CommentList.scss'
-import Comment from '@/components/shared/Comment/Comment'
+import Comment from '@/components/shared/Comment'
 
 function CommentList (props) {
   return (

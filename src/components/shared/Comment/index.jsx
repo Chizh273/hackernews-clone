@@ -4,8 +4,8 @@ import style from './Comment.scss'
 import { connect } from 'react-redux'
 import isEmpty from 'lodash/isEmpty'
 import { loadComment } from '@/actions'
-import Loader from '@/components/shared/Loader/Loader'
-import CommentList from '@/components/shared/CommentList/CommentList'
+import Loader from '@/components/shared/Loader'
+import CommentList from '@/components/shared/CommentList'
 import getTimeAgo from '@/utills/getTimeAgo'
 
 class Comment extends Component {
