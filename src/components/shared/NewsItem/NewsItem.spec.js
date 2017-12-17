@@ -1,8 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import NewsItem from './News-item'
+import NewsItem from './NewsItem'
 
-describe('News-item.jsx', () => {
+describe('NewsItem.jsx', () => {
   const news = {}
 
   it('renders without crashing', () => {

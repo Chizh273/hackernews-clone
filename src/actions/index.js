@@ -37,16 +37,18 @@ export const loadComment = id => ({
   }
 })
 
-export const loadAPISuccess = (type, data) => ({
+export const loadAPISuccess = (type, data, id) => ({
   type: type + _LOAD_SUCCESS,
   payload: {
-    data
+    data,
+    id
   }
 })
 
-export const loadAPIFail = (type, error) => ({
+export const loadAPIFail = (type, error, id) => ({
   type: type + _LOAD_FAIL,
   payload: {
-    error
+    error,
+    id
   }
 })

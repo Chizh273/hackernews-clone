@@ -1,6 +1,17 @@
+@import '~scss/mixins/page-center';
+
 .item-page {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: auto;
+  @include page-center;
+
+  .row {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  .author,
+  .time {
+    margin: 0 10px;
+  }
+
 }

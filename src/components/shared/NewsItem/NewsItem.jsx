@@ -3,11 +3,11 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import isEmpty from 'lodash/isEmpty'
-import moment from 'moment'
-
 import Loader from '../Loader/Loader'
-import style from './News-item.scss'
+import style from './NewsItem.scss'
 import { loadNewsItem } from '../../../actions'
+import formatUnixDate from '../../../utills/formatUnixDate'
+import { DATE_FORMAT_DMY_HMA } from '../../../utills/constants'
 
 class NewsItem extends Component {
   static propTypes = {
@@ -60,7 +60,7 @@ class NewsItem extends Component {
           <strong>{news.descendants}</strong> comment
         </span>
         <span className={style.time}>
-          {moment.unix(news.time, 'x').format('DD MMMM, YYYY - HH:mma')}
+          {formatUnixDate(news.time, DATE_FORMAT_DMY_HMA)}
         </span>
       </Fragment>
     )

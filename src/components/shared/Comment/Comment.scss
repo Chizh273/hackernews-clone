@@ -4,9 +4,9 @@
 
 .comment {
   @include box;
-  margin: 10px 5px 20px 10px;
-  max-width: 500px;
-  padding: 10px;
+  @include rem(margin, 5px 0);
+  @include rem(max-width, 500px);
+  @include rem(padding, 10px);
   width: auto;
 
   .author-row {
@@ -14,7 +14,12 @@
     justify-content: flex-start;
 
     > * {
-      margin: 10px;
+      @include rem(margin, 10px);
     }
+  }
+
+  .text code {
+    display: block;
+    overflow: auto;
   }
 }

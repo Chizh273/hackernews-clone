@@ -1,0 +1,8 @@
+@import '~scss/variables/colors';
+@import '~scss/mixins/box-shadow';
+@import '~scss/mixins/rem';
+
+.comment-list {
+  @include rem(margin, 10px 0 10px 15px);
+  @include rem(max-width, 500px);
+}

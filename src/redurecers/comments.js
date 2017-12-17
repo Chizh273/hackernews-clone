@@ -10,7 +10,6 @@ const commentsDefaultState = {
 }
 
 export default (state = commentsDefaultState, action) => {
-  console.log(state)
   const newState = {...state}
   const {type, payload} = action
 
@@ -21,7 +20,6 @@ export default (state = commentsDefaultState, action) => {
 
     case COMMENT + _LOAD_SUCCESS:
       newState[payload.id] = {isLoading: false, comment: payload.data}
-      console.log(newState[payload.id])
       break
 
     case COMMENT + _LOAD_FAIL:

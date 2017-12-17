@@ -1,43 +1,45 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
-import moment from 'moment'
 import style from './Comment.scss'
 import { connect } from 'react-redux'
 import { loadComment } from '../../../actions'
 import isEmpty from 'lodash/isEmpty'
 import Loader from '../Loader/Loader'
+import CommentList from '../CommentList/CommentList'
+import getTimeAgo from '../../../utills/getTimeAgo'
 
 class Comment extends Component {
   componentWillMount () {
     if (isEmpty(this.props.comment)) {
-      console.log('load', this.props.id)
       this.props.loadComment(this.props.id)
     }
   }
 
   render () {
     const {comment} = this.props
-    console.log(this)
+
     if (this.props.isLoading || isEmpty(comment)) return <Loader />
 
     return (
-      <div className={style.comment}>
-        <div className={style['author-row']}>
-          <strong className="user-name">{comment.by}</strong>
+      <Fragment>
+        <div className={style.comment}>
+          <div className={style['author-row']}>
+            <strong className="user-name">{comment.by}</strong>
 
-          <span className="time">
-            {moment.unix(comment.time, 'x').fromNow()}
-          </span>
+            <span className="time">
+              {getTimeAgo(comment.time)}
+            </span>
+          </div>
+
+          <div
+            className={style.text}
+            dangerouslySetInnerHTML={{__html: comment.text}}
+          />
         </div>
-
-        <div
-          className={style.text}
-          dangerouslySetInnerHTML={{__html: comment.text}}
-        />
-        {comment.kids.length
-          ? comment.kids.map(id => <Comment id={id} key={id} />)
+        {comment.kids && comment.kids.length
+          ? <CommentList commentsId={comment.kids} />
           : null}
-      </div>
+      </Fragment>
     )
   }
 }

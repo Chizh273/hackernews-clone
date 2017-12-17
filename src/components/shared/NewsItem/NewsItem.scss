@@ -21,7 +21,7 @@
   }
 
   .arrow {
-    margin-right: 15px;
+    @include rem(margin-right, 15px);
     transform: rotate(-90deg);
     transition: transform .3s linear;
   }
@@ -53,7 +53,7 @@
     justify-content: center;
 
     > * {
-      margin: 3px;
+      @include rem(margin, 3px);
     }
   }
 }

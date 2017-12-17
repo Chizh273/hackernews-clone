@@ -1,13 +1,16 @@
 @import '~scss/variables/colors';
+@import '~scss/mixins/rem';
 
 .loader {
+  @include rem(height, 64px);
+  @include rem(margin, 10px auto);
+  @include rem(width, 64px);
+
   align-items: center;
   animation: loader-bg 2s infinite;
   background-color: $loader-bg-color;
   display: flex;
-  height: 64px;
   justify-content: center;
-  width: 64px;
 
   > * {
     position: absolute;
@@ -15,27 +18,24 @@
 }
 
 .letter {
+  @include rem(font-size, 52px);
+
   animation: loader-spin 2s infinite;
-  fill: $text-black;
-  fill-opacity: 0;
   font-family: 'Trebuchet MS', Gadget, sans-serif;
-  font-size: 52px;
   font-style: normal;
   font-weight: bold;
-  stroke: $text-black;
-  stroke-linecap: null;
-  stroke-width: 6;
   text-anchor: start;
   transform-origin: center;
 }
 
 .border {
+  @include rem(height, 54px);
+  @include rem(width, 42px);
+  @include rem(border-width, 4px);
+
   animation: loader-spin 2s infinite;
-  border: 4px solid $loader-border-color;
-  fill-opacity: 0;
-  height: 54px;
+  border: solid $loader-border-color;
   transform-origin: center;
-  width: 42px;
 }
 
 @keyframes loader-spin {
