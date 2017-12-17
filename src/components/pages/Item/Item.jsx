@@ -3,11 +3,11 @@ import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import isEmpty from 'lodash/isEmpty'
 import style from './Item.scss'
-import Loader from '../../shared/Loader/Loader'
-import { loadNewsItem } from '../../../actions'
-import formatUnixDate from '../../../utills/formatUnixDate'
-import { DATE_FORMAT_DMY_HMA } from '../../../utills/constants'
-import CommentList from '../../shared/CommentList/CommentList'
+import Loader from '@/components/shared/Loader/Loader'
+import CommentList from '@/components/shared/CommentList/CommentList'
+import { loadNewsItem } from '@/actions'
+import formatUnixDate from '@/utills/formatUnixDate'
+import { DATE_FORMAT_DMY_HMA } from '@/utills/constants'
 
 class Item extends Component {
   static propTypes = {

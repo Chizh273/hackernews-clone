@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import Loader from '../shared/Loader/Loader'
 import { Redirect } from 'react-router-dom'
+import Loader from '@/components/shared/Loader/Loader'
 
 function Async (name, getComponent) {
   return class Async extends Component {

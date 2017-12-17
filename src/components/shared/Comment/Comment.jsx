@@ -2,11 +2,11 @@ import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import style from './Comment.scss'
 import { connect } from 'react-redux'
-import { loadComment } from '../../../actions'
 import isEmpty from 'lodash/isEmpty'
-import Loader from '../Loader/Loader'
-import CommentList from '../CommentList/CommentList'
-import getTimeAgo from '../../../utills/getTimeAgo'
+import { loadComment } from '@/actions'
+import Loader from '@/components/shared/Loader/Loader'
+import CommentList from '@/components/shared/CommentList/CommentList'
+import getTimeAgo from '@/utills/getTimeAgo'
 
 class Comment extends Component {
   componentWillMount () {

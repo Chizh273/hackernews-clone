@@ -3,11 +3,11 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import isEmpty from 'lodash/isEmpty'
-import Loader from '../Loader/Loader'
 import style from './NewsItem.scss'
-import { loadNewsItem } from '../../../actions'
-import formatUnixDate from '../../../utills/formatUnixDate'
-import { DATE_FORMAT_DMY_HMA } from '../../../utills/constants'
+import Loader from '@/components/shared/Loader/Loader'
+import { loadNewsItem } from '@/actions'
+import formatUnixDate from '@/utills/formatUnixDate'
+import { DATE_FORMAT_DMY_HMA } from '@/utills/constants'
 
 class NewsItem extends Component {
   static propTypes = {

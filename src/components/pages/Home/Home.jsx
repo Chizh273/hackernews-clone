@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import { loadNews } from '../../../actions'
-import NewsItem from '../../shared/NewsItem/NewsItem'
-import { getChunkNews } from '../../../selectors'
 import style from './Home.scss'
-import Loader from '../../shared/Loader/Loader'
+import { loadNews } from '@/actions'
+import { getChunkNews } from '@/selectors'
+import NewsItem from '@/components/shared/NewsItem/NewsItem'
+import Loader from '@/components/shared/Loader/Loader'
 
 class Home extends Component {
   static propTypes = {

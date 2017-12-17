@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
-import Header from './shared/Header/Header.jsx'
 import { Switch, Route, HashRouter as Router } from 'react-router-dom'
-import Async from './decorators/Async'
+import Header from '@/components/shared/Header/Header.jsx'
+import Async from '@/components/decorators/Async'
 
 function App () {
   return (
