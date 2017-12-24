@@ -7,14 +7,18 @@ import {
   _LOAD_SUCCESS,
   _LOAD_FAIL
 } from '@/actions/constants'
-import { TOPSTORIES } from '@/entities/constants'
+import { TOPSTORIES, BESTSTORIES, NEWSTORIES } from '@/entities/constants'
 
 const newsDefaultState = {
   isLoading: false,
   isError: false,
   errors: {},
   items: {},
-  countToDisplay: 5,
+  countToDisplay: {
+    [TOPSTORIES]: 5,
+    [NEWSTORIES]: 5,
+    [BESTSTORIES]: 5
+  },
   currentType: TOPSTORIES
 }
 
@@ -52,7 +56,7 @@ export default (state = newsDefaultState, action) => {
       break
 
     case NEWS_LOAD_MORE:
-      newState.countToDisplay += payload.count
+      newState.countToDisplay[newState.currentType] += payload.count
       break
   }
 

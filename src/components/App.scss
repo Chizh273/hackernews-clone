@@ -2,7 +2,13 @@
 @import '~scss/mixins/rem';
 @import '~scss/variables/colors';
 
-.intro {
-  font-size: large;
-  text-align: center;
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+
+  .content {
+    margin-bottom: auto;
+  }
 }

@@ -2,6 +2,8 @@
 @import '~scss/mixins/rem';
 
 .header {
+  @include rem(height, 70px);
+
   align-items: center;
   background-color: $bg-header;
   display: flex;
