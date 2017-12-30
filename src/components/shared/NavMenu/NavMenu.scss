@@ -1,0 +1,11 @@
+@import '~scss/variables/colors';
+
+.nav-menu {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px 0;
+
+  a {
+    color: $text-black;
+  }
+}

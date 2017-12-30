@@ -7,6 +7,7 @@ import {
   _LOAD_FAIL,
   _LOAD_SUCCESS, COMMENT
 } from './constants'
+import { TOPSTORIES } from '@/entities/constants'
 
 const API_URL = 'https://hacker-news.firebaseio.com/v0'
 
@@ -17,13 +18,13 @@ export const selectNewsType = type => ({
   }
 })
 
-export const loadNews = () => ({
+export const loadNews = (type = TOPSTORIES) => ({
   type: NEWS + _LOAD_START,
   payload: {
     api: true,
     loadAll: true,
-    url: `${API_URL}/`,
-    urlSuffix: '.json?print=pretty',
+    type,
+    url: `${API_URL}/${type}.json?print=pretty`,
     nextType: NEWS
   }
 })

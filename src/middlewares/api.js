@@ -12,15 +12,10 @@ export default store => next => async action => {
 
   if (payload.api) {
     let url = payload.url
-    const type = store.getState().news.currentType
-
-    if (payload.loadAll) {
-      url += type + payload.urlSuffix
-    }
 
     try {
       const data = (await axios.get(url)).data
-      next(loadAPISuccess(payload.nextType, data, payload.id, type))
+      next(loadAPISuccess(payload.nextType, data, payload.id, action.payload.type))
     } catch (e) {
       next(loadAPIFail(payload.nextType, e, payload.id))
     }

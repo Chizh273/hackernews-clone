@@ -19,6 +19,9 @@
 
 @media screen and (max-width: 425px) {
   .header {
+    @include rem(padding, 5px 0);
+    @include rem(min-height, 120px);
+
     flex-direction: column;
     justify-content: center;
 

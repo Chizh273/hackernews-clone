@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
@@ -49,7 +49,7 @@ class NewsItem extends Component {
   getDetailsRow () {
     const {news} = this.props
     return (
-      <div>
+      <Fragment>
         <span className="points">
           <strong>{news.score}</strong> points
         </span>
@@ -62,7 +62,7 @@ class NewsItem extends Component {
         <span className={style.time}>
           {formatUnixDate(news.time, DATE_FORMAT_DMY_HMA)}
         </span>
-      </div>
+      </Fragment>
     )
   }
 
