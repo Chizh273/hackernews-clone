@@ -4,6 +4,11 @@ const newsGetter = state => state.news
 
 const newsCurrentTypeGetter = state => state.news.currentType
 
+export const getNewsCurrentType = createSelector(
+  newsCurrentTypeGetter,
+  type => type
+)
+
 export const getChunkNews = createSelector(
   newsGetter,
   newsCurrentTypeGetter,

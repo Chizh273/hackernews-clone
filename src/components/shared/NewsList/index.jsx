@@ -5,7 +5,7 @@ import isEmpty from 'lodash/isEmpty'
 import { loadMoreNews, loadNews } from '@/actions'
 import Loader from '@/components/shared/Loader'
 import NewsItem from '@/components/shared/NewsItem'
-import { TOPSTORIES } from '@/entities/constants'
+import { getNewsCurrentType, getChunkNews } from '@/selectors'
 
 import style from './NewsList.scss'
 
@@ -20,13 +20,13 @@ class NewsList extends Component {
 
   componentWillMount () {
     if (!this.props.news.length && !this.props.isLoading) {
-      this.props.loadNews(this.props.match ? this.props.match.params.type : TOPSTORIES)
+      this.props.loadNews(this.props.type)
     }
   }
 
   componentWillReceiveProps (nextProps) {
-    if (this.props.match && isEmpty(nextProps.news) && this.props.match.params.type !== nextProps.match.params.type) {
-      this.props.loadNews(nextProps.match.params.type)
+    if (isEmpty(nextProps.news) && this.props.type !== nextProps.type) {
+      this.props.loadNews(nextProps.type)
     }
   }
 
@@ -43,13 +43,10 @@ class NewsList extends Component {
   }
 }
 
-const mapStateToProps = ({news}, {match}) => {
-  const type = (match && match.params.type) ? match.params.type : TOPSTORIES
-
-  return {
-    news: news[type] ? news[type].idsArray.slice(0, news.countToDisplay[type]) : [],
-    isLoading: news.isLoading
-  }
-}
+const mapStateToProps = state => ({
+  news: getChunkNews(state),
+  type: getNewsCurrentType(state),
+  isLoading: state.news.isLoading
+})
 
 export default connect(mapStateToProps, {loadNews, loadMoreNews})(NewsList)
