@@ -1,5 +1,12 @@
 import history from '@/routing/history'
-import { BESTSTORIES, NEWSTORIES, TOPSTORIES } from '@/entities/constants'
+import {
+  ASKSTORIES,
+  JOBSTORIES,
+  SHOWSTORIES,
+  BESTSTORIES,
+  NEWSTORIES,
+  TOPSTORIES
+} from '@/entities/constants'
 import { setNewsCurrentType } from '@/actions'
 
 let isSubscribed = false
@@ -32,6 +39,12 @@ const getTypeFromLocation = location => {
       return TOPSTORIES
     case `/${BESTSTORIES}`:
       return BESTSTORIES
+    case `/${ASKSTORIES}`:
+      return ASKSTORIES
+    case `/${JOBSTORIES}`:
+      return JOBSTORIES
+    case `/${SHOWSTORIES}`:
+      return SHOWSTORIES
   }
 
   return false

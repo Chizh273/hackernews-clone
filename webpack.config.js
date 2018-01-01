@@ -17,7 +17,8 @@ module.exports = {
     path: config.contentBase,
     filename: `js/[name]${config.isProd ? '.min' : ''}.js`,
     chunkFilename: `js/[name].chunk${config.isProd ? '.min' : ''}.js`,
-    sourceMapFilename: '[file].map'
+    sourceMapFilename: '[file].map',
+    publicPath: '/'
   },
   plugins: [
     ...plugins,

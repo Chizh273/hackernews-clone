@@ -8,7 +8,14 @@ import {
   _LOAD_FAIL,
   _SET_CURRENT_TYPE
 } from '@/actions/constants'
-import { TOPSTORIES, BESTSTORIES, NEWSTORIES } from '@/entities/constants'
+import {
+  ASKSTORIES,
+  JOBSTORIES,
+  SHOWSTORIES,
+  TOPSTORIES,
+  BESTSTORIES,
+  NEWSTORIES
+} from '@/entities/constants'
 
 const newsDefaultState = {
   isLoading: false,
@@ -18,7 +25,10 @@ const newsDefaultState = {
   countToDisplay: {
     [TOPSTORIES]: 5,
     [NEWSTORIES]: 5,
-    [BESTSTORIES]: 5
+    [BESTSTORIES]: 5,
+    [JOBSTORIES]: 5,
+    [ASKSTORIES]: 5,
+    [SHOWSTORIES]: 5
   },
   currentType: TOPSTORIES
 }

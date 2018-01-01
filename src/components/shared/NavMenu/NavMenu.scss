@@ -1,15 +1,86 @@
 @import '~scss/mixins/rem';
 @import '~scss/variables/colors';
 
-.nav-menu {
+.main-menu {
+  @include rem(margin, 0 50px 0 auto);
+}
+
+.menu {
   @include rem(min-height, 20px);
 
   align-items: center;
   display: flex;
   justify-content: space-around;
-  margin: 10px 0;
 
   a {
-    color: $text-black;
+    @include rem(margin, 10px);
+    @include rem(font-size, 18px);
+
+    color: $text-white;
+
+    i {
+      @include rem(margin, 0 10px);
+    }
+  }
+}
+
+.open-btn {
+  @include rem(height, 20px);
+  @include rem(width, 20px);
+
+  color: $text-white;
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .main-menu {
+    margin: 0 0 0 auto;
+  }
+
+  .menu a {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-decoration: none;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .menu {
+    @include rem(padding-top, 70px);
+
+    align-items: normal;
+    background-color: $bg-header;
+    bottom: 0;
+    display: none;
+    flex-direction: column;
+    justify-content: normal;
+    left: -100%;
+    position: absolute;
+    top: 0;
+    transition: all 1s ease-in-out;
+    width: 80%;
+    z-index: 5;
+
+    &.menu-show {
+      display: flex;
+      left: 0;
+      transition: all 1s ease-in-out;
+    }
+
+    a {
+      @include rem(font-size, 26px);
+      flex-direction: row;
+      justify-content: normal;
+    }
+  }
+
+  .open-btn {
+    @include rem(right, 30px);
+    @include rem(top, 15px);
+
+    display: block;
+    position: absolute;
   }
 }

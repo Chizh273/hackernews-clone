@@ -1,11 +1,10 @@
 import React from 'react'
-import { Switch, Route, Router, NavLink } from 'react-router-dom'
+import { Switch, Route, Router } from 'react-router-dom'
 import Async from '@/components/decorators/Async'
 import Header from '@/components/shared/Header'
-import Footer from '@/components/shared/Footer'
 import NavMenu from '@/components/shared/NavMenu'
-import { BESTSTORIES, NEWSTORIES, TOPSTORIES } from '@/entities/constants'
-import history from '../routing/history'
+import Footer from '@/components/shared/Footer'
+import history from '@/routing/history'
 
 import styles from './App.scss'
 
@@ -14,14 +13,10 @@ function App () {
     <Router history={history}>
       <div className={styles.page}>
         <Header>
-          {'Hacker news clone'}
-        </Header>
+          <h1> {'Hacker news clone'} </h1>
 
-        <NavMenu>
-          <NavLink to={`/${TOPSTORIES}`}>Top</NavLink>
-          <NavLink to={`/${NEWSTORIES}`}>News</NavLink>
-          <NavLink to={`/${BESTSTORIES}`}>Best</NavLink>
-        </NavMenu>
+          <NavMenu />
+        </Header>
 
         <div className={styles.content}>
           <Switch>

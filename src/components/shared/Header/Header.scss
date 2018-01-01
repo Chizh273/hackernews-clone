@@ -13,7 +13,7 @@
     @include rem(margin, 10px);
   }
 
-  .header-title {
+  h1 {
     color: $text-white;
   }
 }
@@ -27,7 +27,7 @@
     justify-content: center;
 
     .header-logo,
-    .header-title {
+    h1 {
       @include rem(padding, 5px 0);
 
       margin: 0;

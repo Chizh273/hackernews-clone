@@ -10,9 +10,7 @@ function Header (props) {
         <img alt="logo" className={style['header-logo']} src={logo} />
       </Link>
 
-      <h1 className={style['header-title']}>
-        { props.children }
-      </h1>
+      { props.children }
     </header>
   )
 }
