@@ -7,6 +7,8 @@ import Loader from '@/components/shared/Loader'
 import NewsItem from '@/components/shared/NewsItem'
 import { TOPSTORIES } from '@/entities/constants'
 
+import style from './NewsList.scss'
+
 class NewsList extends Component {
   static propTypes = {
     isLoading: PropTypes.bool
@@ -34,7 +36,7 @@ class NewsList extends Component {
     }
 
     return (
-      <div className="news">
+      <div className={style.news}>
         {this.props.news.map(id => <NewsItem id={id} key={id} />)}
       </div>
     )

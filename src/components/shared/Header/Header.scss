@@ -3,6 +3,7 @@
 
 .header {
   @include rem(height, 70px);
+  @include rem(min-height, 70px);
 
   align-items: center;
   background-color: $bg-header;
