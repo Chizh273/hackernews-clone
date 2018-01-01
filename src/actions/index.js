@@ -5,7 +5,7 @@ import {
   SELECT_NEWS_TYPE,
   _LOAD_START,
   _LOAD_FAIL,
-  _LOAD_SUCCESS, COMMENT
+  _LOAD_SUCCESS, COMMENT, _SET_CURRENT_TYPE
 } from './constants'
 import { TOPSTORIES } from '@/entities/constants'
 
@@ -72,3 +72,14 @@ export const loadAPIFail = (type, error, id) => ({
     id
   }
 })
+
+export const setNewsCurrentType = type => {
+  console.log(type)
+
+  return {
+    type: NEWS + _SET_CURRENT_TYPE,
+    payload: {
+      type
+    }
+  }
+}

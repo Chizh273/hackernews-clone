@@ -5,7 +5,8 @@ import {
   SELECT_NEWS_TYPE,
   _LOAD_START,
   _LOAD_SUCCESS,
-  _LOAD_FAIL
+  _LOAD_FAIL,
+  _SET_CURRENT_TYPE
 } from '@/actions/constants'
 import { TOPSTORIES, BESTSTORIES, NEWSTORIES } from '@/entities/constants'
 
@@ -57,6 +58,10 @@ export default (state = newsDefaultState, action) => {
 
     case NEWS_LOAD_MORE:
       newState.countToDisplay[newState.currentType] += payload.count
+      break
+
+    case NEWS + _SET_CURRENT_TYPE:
+      newState.currentType = payload.type
       break
   }
 

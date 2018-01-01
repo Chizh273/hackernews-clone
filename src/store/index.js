@@ -1,5 +1,6 @@
 import { createStore, applyMiddleware, compose } from 'redux'
 import api from '@/middlewares/api'
+import history from '@/middlewares/history'
 import reducer from '@/reducers'
 
 /* eslint-disable */
@@ -13,7 +14,8 @@ const composeEnhancers =
 
 const enhancer = composeEnhancers(
   applyMiddleware(
-    api
+    api,
+    history
   )
 )
 

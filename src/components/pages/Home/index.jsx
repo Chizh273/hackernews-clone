@@ -10,7 +10,7 @@ function Home (props) {
   return (
     <div className={style.home}>
       <Route component={NewsList} path="/:type" />
-      <Route path="/" render={() => <NewsList />} />
+      <Route component={NewsList} exact path="/" strict />
 
       <Button onClick={() => props.loadMoreNews()}>
         Load more

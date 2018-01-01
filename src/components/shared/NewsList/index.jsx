@@ -42,7 +42,7 @@ class NewsList extends Component {
 }
 
 const mapStateToProps = ({news}, {match}) => {
-  const type = match ? match.params.type : TOPSTORIES
+  const type = (match && match.params.type) ? match.params.type : TOPSTORIES
 
   return {
     news: news[type] ? news[type].idsArray.slice(0, news.countToDisplay[type]) : [],
