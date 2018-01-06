@@ -2,7 +2,6 @@ import {
   NEWS,
   NEWS_ITEM,
   NEWS_LOAD_MORE,
-  SELECT_NEWS_TYPE,
   _LOAD_START,
   _LOAD_FAIL,
   _LOAD_SUCCESS,
@@ -10,15 +9,7 @@ import {
   COMMENT
 } from './constants'
 import { TOPSTORIES } from '../entities/constants'
-
-const API_URL = 'https://hacker-news.firebaseio.com/v0'
-
-export const selectNewsType = type => ({
-  type: SELECT_NEWS_TYPE,
-  payload: {
-    type
-  }
-})
+import { API_URL, LOAD_MORE_COUNT } from '../utills/constants'
 
 export const loadNews = (type = TOPSTORIES) => ({
   type: NEWS + _LOAD_START,
@@ -34,7 +25,7 @@ export const loadNews = (type = TOPSTORIES) => ({
 export const loadMoreNews = () => ({
   type: NEWS_LOAD_MORE,
   payload: {
-    count: 5
+    count: LOAD_MORE_COUNT
   }
 })
 

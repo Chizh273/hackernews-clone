@@ -4,8 +4,6 @@ export const COMMENT = 'COMMENT'
 
 export const NEWS_LOAD_MORE = 'NEWS_LOAD_MORE'
 
-export const SELECT_NEWS_TYPE = 'SELECT_NEWS_TYPE'
-
 export const _SET_CURRENT_TYPE = '_SET_CURRENT_TYPE'
 
 export const _LOAD_START = '_LOAD_START'

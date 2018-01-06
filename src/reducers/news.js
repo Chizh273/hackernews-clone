@@ -2,7 +2,6 @@ import {
   NEWS,
   NEWS_ITEM,
   NEWS_LOAD_MORE,
-  SELECT_NEWS_TYPE,
   _LOAD_START,
   _LOAD_SUCCESS,
   _LOAD_FAIL,
@@ -16,6 +15,7 @@ import {
   BESTSTORIES,
   NEWSTORIES
 } from '../entities/constants'
+import { INITIAL_COUNT_TO_DISPLAY } from '../utills/constants'
 
 const newsDefaultState = {
   isLoading: false,
@@ -23,12 +23,12 @@ const newsDefaultState = {
   errors: {},
   items: {},
   countToDisplay: {
-    [TOPSTORIES]: 5,
-    [NEWSTORIES]: 5,
-    [BESTSTORIES]: 5,
-    [JOBSTORIES]: 5,
-    [ASKSTORIES]: 5,
-    [SHOWSTORIES]: 5
+    [TOPSTORIES]: INITIAL_COUNT_TO_DISPLAY,
+    [NEWSTORIES]: INITIAL_COUNT_TO_DISPLAY,
+    [BESTSTORIES]: INITIAL_COUNT_TO_DISPLAY,
+    [JOBSTORIES]: INITIAL_COUNT_TO_DISPLAY,
+    [ASKSTORIES]: INITIAL_COUNT_TO_DISPLAY,
+    [SHOWSTORIES]: INITIAL_COUNT_TO_DISPLAY
   },
   currentType: TOPSTORIES
 }
@@ -39,10 +39,6 @@ export default (state = newsDefaultState, action) => {
   newState.isLoading = false
 
   switch (type) {
-    case SELECT_NEWS_TYPE:
-      newState.currentType = payload.type
-      break
-
     case NEWS + _LOAD_START:
       newState.isLoading = true
       break
