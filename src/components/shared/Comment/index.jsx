@@ -9,16 +9,58 @@ import getTimeAgo from '../../../utills/getTimeAgo'
 import './Comment.scss'
 
 class Comment extends Component {
+  static propTypes = {
+    comment: PropTypes.shape({
+      by: PropTypes.string,
+      id: PropTypes.number,
+      kids: PropTypes.array,
+      parent: PropTypes.number,
+      text: PropTypes.string,
+      time: PropTypes.number,
+      type: PropTypes.string
+    }),
+    id: PropTypes.number.isRequired,
+    isLoading: PropTypes.bool
+  }
+
+  static defaultProps = {
+    comment: {},
+    isLoading: false
+  }
+
+  state = {
+    isOpen: false
+  }
+
   componentDidMount () {
     if (isEmpty(this.props.comment)) {
       this.props.loadComment(this.props.id)
     }
   }
 
+  checkChildrenComment = (comment) => comment.kids && comment.kids.length
+
+  handleToggleOpen = () => this.setState({isOpen: !this.state.isOpen})
+
+  getToggleElement () {
+    return (
+      <span className="comment-toggle-element" onClick={this.handleToggleOpen}>
+        [
+        <i
+          aria-hidden
+          className={`fa fa-${this.state.isOpen ? 'minus' : 'plus'}`}
+        />
+        ]
+      </span>
+    )
+  }
+
   render () {
     const {comment} = this.props
 
-    if (this.props.isLoading || isEmpty(comment)) return <Loader />
+    if (this.props.isLoading || isEmpty(comment)) {
+      return <Loader />
+    }
 
     return (
       <Fragment>
@@ -29,6 +71,9 @@ class Comment extends Component {
             <span className="time">
               {getTimeAgo(comment.time)}
             </span>
+            {
+              this.checkChildrenComment(comment) ? this.getToggleElement() : null
+            }
           </div>
 
           <div
@@ -36,31 +81,12 @@ class Comment extends Component {
             dangerouslySetInnerHTML={{__html: comment.text}}
           />
         </div>
-        {comment.kids && comment.kids.length
+        {this.state.isOpen && this.checkChildrenComment(comment)
           ? <CommentList commentsId={comment.kids} />
           : null}
       </Fragment>
     )
   }
-}
-
-Comment.defaultProps = {
-  comment: {},
-  isLoading: false
-}
-
-Comment.propTypes = {
-  comment: PropTypes.shape({
-    by: PropTypes.string,
-    id: PropTypes.number,
-    kids: PropTypes.array,
-    parent: PropTypes.number,
-    text: PropTypes.string,
-    time: PropTypes.number,
-    type: PropTypes.string
-  }),
-  id: PropTypes.number.isRequired,
-  isLoading: PropTypes.bool
 }
 
 const mapStateToProps = (store, ownProps) => {

@@ -15,6 +15,14 @@
     display: flex;
     justify-content: flex-start;
 
+    .comment-toggle-element {
+      margin-left: auto;
+    }
+
+    .comment-toggle-element i {
+      margin: 3px;
+    }
+
     > * {
       @include rem(margin, 10px);
     }
