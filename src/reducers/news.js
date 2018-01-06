@@ -7,7 +7,7 @@ import {
   _LOAD_SUCCESS,
   _LOAD_FAIL,
   _SET_CURRENT_TYPE
-} from '@/actions/constants'
+} from '../actions/constants'
 import {
   ASKSTORIES,
   JOBSTORIES,
@@ -15,7 +15,7 @@ import {
   TOPSTORIES,
   BESTSTORIES,
   NEWSTORIES
-} from '@/entities/constants'
+} from '../entities/constants'
 
 const newsDefaultState = {
   isLoading: false,
@@ -73,6 +73,8 @@ export default (state = newsDefaultState, action) => {
     case NEWS + _SET_CURRENT_TYPE:
       newState.currentType = payload.type
       break
+
+    default:
   }
 
   return newState

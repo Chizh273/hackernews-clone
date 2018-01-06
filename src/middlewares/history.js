@@ -1,4 +1,4 @@
-import history from '@/routing/history'
+import history from '../routing/history'
 import {
   ASKSTORIES,
   JOBSTORIES,
@@ -6,8 +6,8 @@ import {
   BESTSTORIES,
   NEWSTORIES,
   TOPSTORIES
-} from '@/entities/constants'
-import { setNewsCurrentType } from '@/actions'
+} from '../entities/constants'
+import { setNewsCurrentType } from '../actions'
 
 let isSubscribed = false
 
@@ -45,7 +45,7 @@ const getTypeFromLocation = location => {
       return JOBSTORIES
     case `/${SHOWSTORIES}`:
       return SHOWSTORIES
+    default:
+      return false
   }
-
-  return false
 }

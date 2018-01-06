@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { loadAPIFail, loadAPISuccess } from '@/actions'
+import { loadAPIFail, loadAPISuccess } from '../actions'
 
 export default store => next => async action => {
   const {payload} = action

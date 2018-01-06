@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import style from './CommentList.scss'
-import Comment from '@/components/shared/Comment'
+import Comment from '../Comment'
+import './CommentList.scss'
 
 function CommentList (props) {
   return (
-    <div className={style['comment-list']}>
+    <div className="comment-list">
       {props.commentsId.length
         ? props.commentsId.map(id => <Comment id={id} key={id} />)
         : null}

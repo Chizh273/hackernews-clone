@@ -3,14 +3,14 @@
 .item-page {
   @include page-center;
 
-  .row {
+  .item-page-row {
     align-items: center;
     display: flex;
     justify-content: center;
   }
 
-  .author,
-  .time {
+  .item-page-author,
+  .item-page-time {
     margin: 0 10px;
   }
 

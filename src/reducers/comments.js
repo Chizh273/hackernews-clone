@@ -3,7 +3,7 @@ import {
   _LOAD_FAIL,
   _LOAD_START,
   _LOAD_SUCCESS
-} from '@/actions/constants'
+} from '../actions/constants'
 
 const commentsDefaultState = {
 
@@ -25,7 +25,8 @@ export default (state = commentsDefaultState, action) => {
     case COMMENT + _LOAD_FAIL:
       newState[payload.id] = {isLoading: false, isError: true, error: payload.error}
       break
-  }
 
-  return newState
+    default:
+      return newState
+  }
 }

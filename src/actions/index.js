@@ -9,7 +9,7 @@ import {
   _SET_CURRENT_TYPE,
   COMMENT
 } from './constants'
-import { TOPSTORIES } from '@/entities/constants'
+import { TOPSTORIES } from '../entities/constants'
 
 const API_URL = 'https://hacker-news.firebaseio.com/v0'
 

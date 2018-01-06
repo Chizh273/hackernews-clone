@@ -7,9 +7,9 @@ import {
   BESTSTORIES,
   NEWSTORIES,
   TOPSTORIES
-} from '@/entities/constants'
+} from '../../../entities/constants'
 
-import styles from './NavMenu.scss'
+import './NavMenu.scss'
 
 class MainMenu extends Component {
   constructor (...args) {
@@ -26,8 +26,8 @@ class MainMenu extends Component {
 
   render () {
     return (
-      <div className={styles['main-menu']}>
-        <div className={styles['open-btn']}>
+      <div className="nav-menu">
+        <div className="nav-menu-open-btn">
           <i
             aria-hidden="true"
             className={`fa ${this.state.isOpen ? 'fa-times' : 'fa-bars'} fa-2x`}
@@ -35,7 +35,7 @@ class MainMenu extends Component {
           />
         </div>
 
-        <div className={`${styles.menu} ${this.state.isOpen ? styles['menu-show'] : ''}`}>
+        <div className={`nav-menu-links ${this.state.isOpen ? 'nav-menu-links-show' : ''}`}>
           <NavLink to={`/${TOPSTORIES}`}>
             <i aria-hidden="true" className="fa fa-arrow-up" />
             <span>Top</span>

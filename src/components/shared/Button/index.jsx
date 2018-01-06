@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import style from './Button.scss'
+import './Button.scss'
 
 function Button (props) {
   return (
-    <div className={style.button} {...props}>
+    <div className="button" {...props}>
       {props.children}
     </div>
   )

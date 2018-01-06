@@ -5,32 +5,22 @@
 yarn start
 ``
 
-### Run css and js lint
+### Run build
 ``
-yarn run lint
+yarn build
 ``
 
-### Run scss lint
+### Run test
 ``
-yarn run lint:scss
+yarn test
 ``
 
 ### Run js lint
 ``
-yarn run lint:js
+yarn lint
 ``
 
 ### Run fix js lint errors
 ``
-yarn run lint:js:fix
-``
-
-### Run build
-``
-yarn run build
-``
-
-### Run build for prod
-``
-yarn run build:prod
+yarn lint:fix
 ``

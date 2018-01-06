@@ -3,11 +3,11 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import isEmpty from 'lodash/isEmpty'
-import style from './NewsItem.scss'
-import Loader from '@/components/shared/Loader'
-import { loadNewsItem } from '@/actions'
-import formatUnixDate from '@/utills/formatUnixDate'
-import { DATE_FORMAT_DMY_HMA } from '@/utills/constants'
+import Loader from '../Loader'
+import { loadNewsItem } from '../../../actions'
+import formatUnixDate from '../../../utills/formatUnixDate'
+import { DATE_FORMAT_DMY_HMA } from '../../../utills/constants'
+import './NewsItem.scss'
 
 class NewsItem extends Component {
   static propTypes = {
@@ -43,23 +43,23 @@ class NewsItem extends Component {
   }
 
   getArrowClassName (isShow) {
-    return `fa fa-angle-down fa-2x ${style.arrow} ${isShow ? style.rotate : ''}`
+    return `fa fa-angle-down fa-2x news-item-arrow ${isShow ? 'news-item-rotate' : ''}`
   }
 
   getDetailsRow () {
     const {news} = this.props
     return (
       <Fragment>
-        <span className="points">
+        <span>
           <strong>{news.score}</strong> points
         </span>
-        <span className="author">
+        <span>
           by <strong>{news.by}</strong>
         </span>
-        <span className="comment-count">
+        <span>
           <strong>{news.descendants}</strong> comment
         </span>
-        <span className={style.time}>
+        <span>
           {formatUnixDate(news.time, DATE_FORMAT_DMY_HMA)}
         </span>
       </Fragment>
@@ -77,10 +77,10 @@ class NewsItem extends Component {
     }
 
     return (
-      <div className={style['news-item']}>
+      <div className="news-item">
 
-        <div className={`${style.row} ${style['main-row']}`}>
-          <a className={style.title} href={news.url}>{news.title}</a>
+        <div className="news-item-main-row news-item-row">
+          <a className="news-item-title" href={news.url}>{news.title}</a>
           <i
             aria-hidden="true"
             className={this.getArrowClassName(isShow)}
@@ -89,10 +89,10 @@ class NewsItem extends Component {
         </div>
 
         {isShow ? (
-          <div className={`${style['detail-row']}`}>
+          <div className="news-item-detail-row">
             {this.getDetailsRow()}
 
-            <div className={style['open-item']}>
+            <div className="news-item-open-item">
               <Link to={`/item/${this.props.id}`}>
                 Open comments
                 <i aria-hidden="true" className="fa fa-long-arrow-right" />

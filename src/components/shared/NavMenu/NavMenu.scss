@@ -1,11 +1,11 @@
 @import '~scss/mixins/rem';
 @import '~scss/variables/colors';
 
-.main-menu {
+.nav-menu {
   @include rem(margin, 0 50px 0 auto);
 }
 
-.menu {
+.nav-menu-links {
   @include rem(min-height, 20px);
 
   align-items: center;
@@ -24,7 +24,7 @@
   }
 }
 
-.open-btn {
+.nav-menu-open-btn {
   @include rem(height, 20px);
   @include rem(width, 20px);
 
@@ -63,7 +63,7 @@
     width: 80%;
     z-index: 5;
 
-    &.menu-show {
+    &.nav-menu-links-show {
       display: flex;
       left: 0;
       transition: all 1s ease-in-out;
@@ -76,7 +76,7 @@
     }
   }
 
-  .open-btn {
+  .nav-menu-open-btn {
     @include rem(right, 30px);
     @include rem(top, 15px);
 

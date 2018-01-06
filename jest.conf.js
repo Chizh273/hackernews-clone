@@ -1,18 +1,15 @@
-const path = require('path')
-
 module.exports = {
-  rootDir: path.resolve(__dirname, './'),
   collectCoverageFrom: [
     'src/**/*.{js,jsx,mjs}'
   ],
   setupFiles: [
-    '<rootDir>/config/jest/polyfills.js'
+    '<rootDir>/config/polyfills.js'
   ],
   testMatch: [
     '<rootDir>/src/**/__tests__/**/*.{js,jsx,mjs}',
     '<rootDir>/src/**/?(*.)(spec|test).{js,jsx,mjs}'
   ],
-  testEnvironment: 'jsdom',
+  testEnvironment: 'node',
   testURL: 'http://localhost',
   transform: {
     '^.+\\.(js|jsx|mjs)$': '<rootDir>/node_modules/babel-jest',
@@ -23,7 +20,6 @@ module.exports = {
     '[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$'
   ],
   moduleNameMapper: {
-    '^@/(.*)$': '<rootDir>/src/$1',
     '^react-native$': 'react-native-web'
   },
   moduleFileExtensions: [

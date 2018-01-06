@@ -2,12 +2,11 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import isEmpty from 'lodash/isEmpty'
-import { loadMoreNews, loadNews } from '@/actions'
-import Loader from '@/components/shared/Loader'
-import NewsItem from '@/components/shared/NewsItem'
-import { getNewsCurrentType, getChunkNews } from '@/selectors'
-
-import style from './NewsList.scss'
+import { loadMoreNews, loadNews } from '../../../actions'
+import Loader from '../Loader'
+import NewsItem from '../NewsItem'
+import { getNewsCurrentType, getChunkNews } from '../../../selectors'
+import './NewsList.scss'
 
 class NewsList extends Component {
   static propTypes = {
@@ -36,7 +35,7 @@ class NewsList extends Component {
     }
 
     return (
-      <div className={style.news}>
+      <div className="news-list">
         {this.props.news.map(id => <NewsItem id={id} key={id} />)}
       </div>
     )

@@ -10,7 +10,7 @@
 
   width: 90%;
 
-  .title {
+  .news-item-title {
     @include rem(font-size, 18px);
 
     color: $text-gray;
@@ -20,18 +20,18 @@
     width: 85%;
   }
 
-  .arrow {
+  .news-item-arrow {
     @include rem(margin-right, 15px);
     transform: rotate(-90deg);
     transition: transform .3s linear;
   }
 
-  .rotate {
+  .news-item-rotate {
     transform: rotate(0);
   }
 
-  .row,
-  .detail-row {
+  .news-item-row,
+  .news-item-detail-row {
     @include rem(margin-top, 10px);
     align-items: center;
     display: flex;
@@ -40,7 +40,7 @@
     justify-content: space-between;
   }
 
-  .open-item {
+  .news-item-open-item {
     @include rem(margin-top, 10px);
 
     text-align: center;
@@ -57,7 +57,7 @@
 }
 
 @media screen and (max-width: 425px) {
-  .detail-row {
+  .news-item-detail-row {
     flex-direction: column;
     justify-content: center;
 

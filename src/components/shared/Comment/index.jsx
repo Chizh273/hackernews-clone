@@ -1,12 +1,12 @@
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
-import style from './Comment.scss'
 import { connect } from 'react-redux'
 import isEmpty from 'lodash/isEmpty'
-import { loadComment } from '@/actions'
-import Loader from '@/components/shared/Loader'
-import CommentList from '@/components/shared/CommentList'
-import getTimeAgo from '@/utills/getTimeAgo'
+import { loadComment } from '../../../actions'
+import Loader from '../Loader'
+import CommentList from '../CommentList'
+import getTimeAgo from '../../../utills/getTimeAgo'
+import './Comment.scss'
 
 class Comment extends Component {
   componentDidMount () {
@@ -22,8 +22,8 @@ class Comment extends Component {
 
     return (
       <Fragment>
-        <div className={style.comment}>
-          <div className={style['author-row']}>
+        <div className="comment">
+          <div className="comment-author-row">
             <strong className="user-name">{comment.by}</strong>
 
             <span className="time">
@@ -32,7 +32,7 @@ class Comment extends Component {
           </div>
 
           <div
-            className={style.text}
+            className="comment-text"
             dangerouslySetInnerHTML={{__html: comment.text}}
           />
         </div>

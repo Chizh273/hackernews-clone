@@ -11,7 +11,7 @@
   width: 100%;
   word-wrap: break-word;
 
-  .author-row {
+  .comment-author-row {
     display: flex;
     justify-content: flex-start;
 
@@ -20,7 +20,7 @@
     }
   }
 
-  .text code {
+  .comment-text code {
     display: block;
     overflow: auto;
   }
