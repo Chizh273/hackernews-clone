@@ -4,15 +4,14 @@ import { COMMENT } from '../../actions/constants'
 
 describe('Comment reducer', () => {
   it('should return the initial state', () => {
-    expect(reducer(undefined, {})).toEqual({})
+    expect(reducer(undefined, {}).toJS()).toEqual({})
   })
 
   it('should handle COMMENT_LOAD_START', () => {
     const id = 2354
     const state = reducer(undefined, loadComment(id))
 
-    expect(state[id].isLoading).toBe(true)
-    expect(state[id].comment).toEqual({})
+    expect(state.get(id).get('isLoading')).toBe(true)
   })
 
   it('should handle COMMENT_LOAD_SUCCESS', () => {
@@ -34,8 +33,12 @@ describe('Comment reducer', () => {
     const state = reducer(undefined,
       loadAPISuccess(type, data, id, newsType))
 
-    expect(state[id].isLoading).toBe(false)
-    expect(state[id].comment).toEqual(data)
+    expect(state.get(id).toJS()).toEqual({
+      isLoading: false,
+      isError: false,
+      error: null,
+      ...data
+    })
   })
 
   it('should handle COMMENT_LOAD_FAIL', () => {
@@ -44,7 +47,7 @@ describe('Comment reducer', () => {
     const id = 2345
     const state = reducer(undefined, loadAPIFail(type, error, id))
 
-    expect(state[id].isError).toBe(true)
-    expect(state[id].error).toEqual(error)
+    expect(state.get(id).get('isError')).toBe(true)
+    expect(state.get(id).get('error')).toEqual(error)
   })
 })

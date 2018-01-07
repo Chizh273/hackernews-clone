@@ -17,7 +17,7 @@ class NewsList extends Component {
     isLoading: true
   }
 
-  componentWillMount () {
+  componentDidMount () {
     if (!this.props.news.length && !this.props.isLoading) {
       this.props.loadNews(this.props.type)
     }

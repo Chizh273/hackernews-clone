@@ -89,11 +89,10 @@ class Comment extends Component {
   }
 }
 
-const mapStateToProps = (store, ownProps) => {
-  return {
-    ...store.comments[ownProps.id]
-  }
-}
+const mapStateToProps = ({comments}, {id}) => ({
+  isLoading: comments.has(id) ? comments.get(id).get('isLoading') : null,
+  comment: comments.has(id) ? comments.get(id).toJS() : {}
+})
 
 const mapDispatchToProps = (dispatch) => ({
   loadComment: (id) => dispatch(loadComment(id))

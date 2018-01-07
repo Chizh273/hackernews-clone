@@ -1,32 +1,40 @@
 import {
   COMMENT, _LOAD_FAIL, _LOAD_START, _LOAD_SUCCESS
 } from '../actions/constants'
+import { Record, Map } from 'immutable'
 
-const commentsDefaultState = {}
+const CommentRecord = Record({
+  by: '',
+  id: null,
+  kids: [],
+  parent: null,
+  text: '',
+  time: null,
+  type: '',
+  isLoading: false,
+  isError: false,
+  error: null
+})
+const CommentState = new Map({})
 
-export default (state = commentsDefaultState, action) => {
-  const newState = {...state}
+export default (state = CommentState, action) => {
   const {type, payload} = action
 
   switch (type) {
     case COMMENT + _LOAD_START:
-      newState[payload.id] = {isLoading: true, comment: {}}
+      state = state.set(payload.id, new CommentRecord({isLoading: true}))
       break
 
     case COMMENT + _LOAD_SUCCESS:
-      newState[payload.id] = {isLoading: false, comment: payload.data}
+      state = state.set(payload.id, new CommentRecord({...payload.data, isLoading: false}))
       break
 
     case COMMENT + _LOAD_FAIL:
-      newState[payload.id] = {
-        isLoading: false,
-        isError: true,
-        error: payload.error
-      }
+      state = state.set(payload.id, new CommentRecord({isError: true, error: payload.error, isLoading: false}))
       break
 
     default:
   }
 
-  return newState
+  return state
 }

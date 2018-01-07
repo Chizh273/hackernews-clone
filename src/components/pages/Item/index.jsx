@@ -39,7 +39,7 @@ class Item extends Component {
     const {item} = this.props
 
     if (isEmpty(this.props.item) || this.props.isLoading) return <Loader />
-    console.log(item)
+    console.log(item.kids)
     return (
       <div className="item-page">
         <div className="news">
