@@ -17,7 +17,8 @@ class Comment extends Component {
       parent: PropTypes.number,
       text: PropTypes.string,
       time: PropTypes.number,
-      type: PropTypes.string
+      type: PropTypes.string,
+      deleted: PropTypes.boolean
     }),
     id: PropTypes.number.isRequired,
     isLoading: PropTypes.bool
@@ -55,6 +56,12 @@ class Comment extends Component {
     )
   }
 
+  getCommentWrapper = (elements) => (
+    <div className="comment">
+      {elements}
+    </div>
+  )
+
   render () {
     const {comment} = this.props
 
@@ -62,25 +69,32 @@ class Comment extends Component {
       return <Loader />
     }
 
+    if (comment.deleted) {
+      return this.getCommentWrapper(<div className="comment-deleted">Sorry. This comment was deleted...</div>)
+    }
+
     return (
       <Fragment>
-        <div className="comment">
-          <div className="comment-author-row">
-            <strong className="user-name">{comment.by}</strong>
+        {this.getCommentWrapper(
+          <Fragment>
+            <div className="comment-author-row">
+              <strong className="user-name">{comment.by}</strong>
 
-            <span className="time">
-              {getTimeAgo(comment.time)}
-            </span>
-            {
-              this.checkChildrenComment(comment) ? this.getToggleElement() : null
-            }
-          </div>
+              <span className="time">
+                {getTimeAgo(comment.time)}
+              </span>
+              {
+                this.checkChildrenComment(
+                  comment) ? this.getToggleElement() : null
+              }
+            </div>
 
-          <div
-            className="comment-text"
-            dangerouslySetInnerHTML={{__html: comment.text}}
-          />
-        </div>
+            <div
+              className='comment-text'
+              dangerouslySetInnerHTML={{__html: comment.text}}
+            />
+          </Fragment>
+        )}
         {this.state.isOpen && this.checkChildrenComment(comment)
           ? <CommentList commentsId={comment.kids} />
           : null}

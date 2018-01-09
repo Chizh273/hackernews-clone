@@ -1,19 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import isEmpty from 'lodash/isEmpty'
 import Comment from '../Comment'
 import './CommentList.scss'
 
 function CommentList (props) {
   return (
     <div className="comment-list">
-      {props.commentsId.length
+      {!isEmpty(props.commentsId)
         ? props.commentsId.map(id => <Comment id={id} key={id} />)
         : null}
     </div>
   )
 }
 
-Comment.propTypes = {
+CommentList.propTypes = {
   commentsId: PropTypes.array.isRequired
 }
 

@@ -11,6 +11,12 @@
   width: 100%;
   word-wrap: break-word;
 
+  .comment-deleted {
+    color: #555;
+    font-size: 14px;
+    text-align: center;
+  }
+
   .comment-author-row {
     display: flex;
     justify-content: flex-start;

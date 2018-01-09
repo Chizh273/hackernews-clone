@@ -13,7 +13,8 @@ const CommentRecord = Record({
   type: '',
   isLoading: false,
   isError: false,
-  error: null
+  error: null,
+  deleted: false
 })
 const CommentState = new Map({})
 
