@@ -33,11 +33,11 @@
 }
 
 @media screen and (max-width: 768px) {
-  .main-menu {
+  .nav-menu {
     margin: 0 0 0 auto;
   }
 
-  .menu a {
+  .nav-menu-links a {
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -47,7 +47,7 @@
 }
 
 @media screen and (max-width: 425px) {
-  .menu {
+  .nav-menu-links {
     @include rem(padding-top, 70px);
 
     align-items: normal;
