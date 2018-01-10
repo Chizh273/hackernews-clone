@@ -5,6 +5,8 @@ import Header from './shared/Header'
 import NavMenu from './shared/NavMenu'
 import Footer from './shared/Footer'
 import history from '../routing/history'
+import links from '../routing/links'
+
 import './App.scss'
 
 function App () {
@@ -14,7 +16,7 @@ function App () {
         <Header>
           <h1> {'Hacker news clone'} </h1>
 
-          <NavMenu />
+          <NavMenu links={links} />
         </Header>
 
         <div className="content">

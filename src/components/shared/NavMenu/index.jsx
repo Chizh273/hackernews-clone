@@ -1,17 +1,13 @@
 import React, { Component } from 'react'
-import { NavLink } from 'react-router-dom'
-import {
-  ASKSTORIES,
-  JOBSTORIES,
-  SHOWSTORIES,
-  BESTSTORIES,
-  NEWSTORIES,
-  TOPSTORIES
-} from '../../../entities/constants'
-
+import PropTypes from 'prop-types'
+import MenuItem from '../MenuItem'
 import './NavMenu.scss'
 
 class MainMenu extends Component {
+  static propTypes = {
+    links: PropTypes.array.isRequired
+  }
+
   constructor (...args) {
     super(...args)
 
@@ -22,6 +18,10 @@ class MainMenu extends Component {
 
   handleMenuOpen = () => this.setState({
     isOpen: !this.state.isOpen
+  })
+
+  handleMenuClose = () => this.setState({
+    isOpen: false
   })
 
   render () {
@@ -36,30 +36,7 @@ class MainMenu extends Component {
         </div>
 
         <div className={`nav-menu-links ${this.state.isOpen ? 'nav-menu-links-show' : ''}`}>
-          <NavLink to={`/${TOPSTORIES}`}>
-            <i aria-hidden="true" className="fa fa-arrow-up" />
-            <span>Top</span>
-          </NavLink>
-          <NavLink to={`/${NEWSTORIES}`}>
-            <i aria-hidden="true" className="fa fa-newspaper-o" />
-            <span>News</span>
-          </NavLink>
-          <NavLink to={`/${BESTSTORIES}`}>
-            <i aria-hidden="true" className="fa fa-thumbs-o-up" />
-            <span>Best</span>
-          </NavLink>
-          <NavLink to={`/${ASKSTORIES}`}>
-            <i aria-hidden="true" className="fa fa-question-circle-o" />
-            <span>Ask</span>
-          </NavLink>
-          <NavLink to={`/${JOBSTORIES}`}>
-            <i aria-hidden="true" className="fa fa-building-o" />
-            <span>Job</span>
-          </NavLink>
-          <NavLink to={`/${SHOWSTORIES}`}>
-            <i aria-hidden="true" className="fa fa-eye" />
-            <span>Show</span>
-          </NavLink>
+          {this.props.links.map(link => (<MenuItem {...link} key={link.to} onClick={this.handleMenuClose} />))}
         </div>
       </div>
     )
