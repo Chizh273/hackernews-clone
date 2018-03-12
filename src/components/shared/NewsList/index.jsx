@@ -35,7 +35,7 @@ class NewsList extends Component {
     if (this.props.isLoading) {
       return <Loader />
     }
-    console.log(this)
+
     return (
       <div className="news-list">
         <Helmet>
