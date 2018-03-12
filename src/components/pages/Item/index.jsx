@@ -8,6 +8,7 @@ import { loadNewsItem } from '../../../actions'
 import formatUnixDate from '../../../utills/formatUnixDate'
 import { DATE_FORMAT_DMY_HMA } from '../../../utills/constants'
 import './Item.scss'
+import { Helmet } from 'react-helmet'
 
 class Item extends Component {
   static propTypes = {
@@ -39,9 +40,14 @@ class Item extends Component {
     const {item} = this.props
 
     if (isEmpty(this.props.item) || this.props.isLoading) return <Loader />
-    console.log(item.kids)
+
     return (
       <div className="item-page">
+        <Helmet>
+          <title>{item.title} | Hacker news clone</title>
+          <meta content={`${item.title} by ${item.by}`} name="description" />
+        </Helmet>
+
         <div className="news">
           <div className="item-page-row">
             <h1>{item.title}</h1>

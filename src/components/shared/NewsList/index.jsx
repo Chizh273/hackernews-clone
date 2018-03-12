@@ -7,6 +7,8 @@ import Loader from '../Loader'
 import NewsItem from '../NewsItem'
 import { getNewsCurrentType, getChunkNews } from '../../../selectors'
 import './NewsList.scss'
+import { Helmet } from 'react-helmet'
+import capitalize from '../../../utills/capitalize'
 
 class NewsList extends Component {
   static propTypes = {
@@ -33,9 +35,14 @@ class NewsList extends Component {
     if (this.props.isLoading) {
       return <Loader />
     }
-
+    console.log(this)
     return (
       <div className="news-list">
+        <Helmet>
+          <title>{capitalize(this.props.type)} | Hacker news clone</title>
+          <meta content="Hacker news clone by Chizh273" name="description" />
+        </Helmet>
+
         {this.props.news.map(id => <NewsItem id={id} key={id} />)}
       </div>
     )
