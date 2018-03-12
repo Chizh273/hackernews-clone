@@ -37,6 +37,7 @@ describe('Comment reducer', () => {
       isLoading: false,
       isError: false,
       error: null,
+      deleted: false,
       ...data
     })
   })
